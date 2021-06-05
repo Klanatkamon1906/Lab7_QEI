@@ -55,16 +55,21 @@ uint64_t TimestampControl = 0;
 uint16_t Period = 1000;
 float PWMOut = 0;
 float VelInput = 0;
-float AvgCons = 200;
-uint16_t PeriodRead = 200;
-uint16_t PeriodControl = 200;
+float AvgCons = 1000;
+uint16_t PeriodRead = 300;
+uint16_t PeriodControl = 300;
 uint16_t ReadPPR = 3072;
 float E[3] = {0};
 float C[3] = {0};
 float U[2] = {0};
-float Kp = 0;
-float Ki = 0;
-float Kd = 0;
+float Kp = 1.4;		//at 15 rpm
+float Ki = 0.0014;	//at 15 rpm
+float Kd = 0;		//at 15 rpm
+float GetP = 0;
+float GetI = 0;
+float GetD = 0;
+float VelSet = 0;
+float Setpoint = 0;
 uint16_t WorkRange = 10000;
 /* USER CODE END PV */
 
@@ -144,9 +149,27 @@ int main(void)
 		if(micros() - TimestampControl >= PeriodControl)
 		{
 			TimestampControl = micros();
-
+			Setpoint = VelSet * ReadPPR / 60;
+			if(GetP != Kp || GetI != Ki || GetD != Kd)
+			{
+				Kp = GetP;
+				Ki = GetI;
+				Kd = GetD;
+				C[0] = Kp + Ki + Kd;
+				C[1] = Kp - (2 * Kd);
+				C[2] = Kd;
+				U[1] = 0;
+				E[1] = 0;
+				E[2] = 0;
+			}
+			E[0] = Setpoint - EncoderVel;
+			U[0] = (C[0]*E[0]) - (C[1]*E[1]) + (C[2]*E[2]) + U[1];
+			PWMOut = U[0];
 			PWMOut = PWMCheck(PWMOut);
 			ControlMotor(PWMOut);
+			U[1] = U[0];
+			E[2] = E[1];
+			E[1] = E[0];
 		}
 	}
   /* USER CODE END 3 */
