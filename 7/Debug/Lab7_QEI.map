@@ -85,7 +85,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 Core/Src/main.o
  .data          0x0000000000000000        0x0 Core/Src/main.o
  .bss           0x0000000000000000        0x0 Core/Src/main.o
- .data.Period   0x0000000000000000        0x2 Core/Src/main.o
  .bss.VelInput  0x0000000000000000        0x4 Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/stm32f4xx_hal_msp.o
  .group         0x0000000000000000        0xc Core/Src/stm32f4xx_hal_msp.o
@@ -3193,10 +3192,10 @@ LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .data.ReadPPR  0x0000000020000008        0x2 Core/Src/main.o
                 0x0000000020000008                ReadPPR
  *fill*         0x000000002000000a        0x2 
- .data.Kp       0x000000002000000c        0x4 Core/Src/main.o
-                0x000000002000000c                Kp
- .data.Ki       0x0000000020000010        0x4 Core/Src/main.o
-                0x0000000020000010                Ki
+ .data.GetP     0x000000002000000c        0x4 Core/Src/main.o
+                0x000000002000000c                GetP
+ .data.GetI     0x0000000020000010        0x4 Core/Src/main.o
+                0x0000000020000010                GetI
  .data.WorkRange
                 0x0000000020000014        0x2 Core/Src/main.o
                 0x0000000020000014                WorkRange
@@ -3248,12 +3247,12 @@ LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000020000078                C
  .bss.U         0x0000000020000084        0x8 Core/Src/main.o
                 0x0000000020000084                U
- .bss.Kd        0x000000002000008c        0x4 Core/Src/main.o
-                0x000000002000008c                Kd
- .bss.GetP      0x0000000020000090        0x4 Core/Src/main.o
-                0x0000000020000090                GetP
- .bss.GetI      0x0000000020000094        0x4 Core/Src/main.o
-                0x0000000020000094                GetI
+ .bss.Kp        0x000000002000008c        0x4 Core/Src/main.o
+                0x000000002000008c                Kp
+ .bss.Ki        0x0000000020000090        0x4 Core/Src/main.o
+                0x0000000020000090                Ki
+ .bss.Kd        0x0000000020000094        0x4 Core/Src/main.o
+                0x0000000020000094                Kd
  .bss.GetD      0x0000000020000098        0x4 Core/Src/main.o
                 0x0000000020000098                GetD
  .bss.VelSet    0x000000002000009c        0x4 Core/Src/main.o
@@ -3261,9 +3260,9 @@ LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .bss.Setpoint  0x00000000200000a0        0x4 Core/Src/main.o
                 0x00000000200000a0                Setpoint
  *fill*         0x00000000200000a4        0x4 
- .bss.EncoderLastTimestamp.8122
+ .bss.EncoderLastTimestamp.8121
                 0x00000000200000a8        0x8 Core/Src/main.o
- .bss.EncoderLastPosition.8121
+ .bss.EncoderLastPosition.8120
                 0x00000000200000b0        0x4 Core/Src/main.o
  *(COMMON)
  COMMON         0x00000000200000b4      0x11c Core/Src/main.o
@@ -3345,19 +3344,19 @@ LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
 LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD c:/st/stm32cubeide_1.5.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x0000000000000000     0xb336
- .debug_info    0x0000000000000000     0x1500 Core/Src/main.o
- .debug_info    0x0000000000001500     0x1065 Core/Src/stm32f4xx_hal_msp.o
- .debug_info    0x0000000000002565      0x835 Core/Src/stm32f4xx_it.o
- .debug_info    0x0000000000002d9a      0x5d0 Core/Src/system_stm32f4xx.o
- .debug_info    0x000000000000336a       0x22 Core/Startup/startup_stm32f411retx.o
- .debug_info    0x000000000000338c      0x944 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_info    0x0000000000003cd0      0xe47 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_info    0x0000000000004b17      0x862 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_info    0x0000000000005379      0x9be Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_info    0x0000000000005d37     0x2a88 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_info    0x00000000000087bf     0x151a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_info    0x0000000000009cd9     0x165d Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
+.debug_info     0x0000000000000000     0xb324
+ .debug_info    0x0000000000000000     0x14ee Core/Src/main.o
+ .debug_info    0x00000000000014ee     0x1065 Core/Src/stm32f4xx_hal_msp.o
+ .debug_info    0x0000000000002553      0x835 Core/Src/stm32f4xx_it.o
+ .debug_info    0x0000000000002d88      0x5d0 Core/Src/system_stm32f4xx.o
+ .debug_info    0x0000000000003358       0x22 Core/Startup/startup_stm32f411retx.o
+ .debug_info    0x000000000000337a      0x944 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_info    0x0000000000003cbe      0xe47 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_info    0x0000000000004b05      0x862 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_info    0x0000000000005367      0x9be Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_info    0x0000000000005d25     0x2a88 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_info    0x00000000000087ad     0x151a Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_info    0x0000000000009cc7     0x165d Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o
 
 .debug_abbrev   0x0000000000000000     0x190d
  .debug_abbrev  0x0000000000000000      0x2e7 Core/Src/main.o
